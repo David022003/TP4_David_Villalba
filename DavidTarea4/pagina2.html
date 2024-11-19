@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Imágenes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .gallery img {
+            width: 300px; /* Aumentado para mayor visibilidad */
+            height: auto; /* Mantener proporción */
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .scale img:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+        .rotate img:hover {
+            transform: rotate(10deg);
+            opacity: 0.9;
+        }
+        .fade img:hover {
+            opacity: 0.5;
+        }
+    </style>
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            'imagenes/imagen1.jpeg',
+            'imagenes/imagen2.jpeg',
+            'imagenes/imagen3.jpeg',
+            'imagenes/imagen4.jpeg',
+            'imagenes/imagen5.jpeg'
+        ];
+        
+        function checkAge() {
+            const age = prompt("¿Cuál es tu edad?");
+            if (age !== null) {
+                if (parseInt(age) > 20) {
+                    alert("Eres mayor de 20 años.");
+                } else {
+                    alert("Eres menor o igual a 20 años.");
+                }
+            }
+        }
+
+        function changeImage(image) {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            image.src = images[currentImageIndex];
+        }
+
+        window.onload = function() {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = images[currentImageIndex];
+        }
+    </script>
+</head>
+<body onload="checkAge()">
+    <h1>¡Bienvenido a la Galería de Imágenes!</h1>
+    <div class="gallery">
+        <img id="mainImage" alt="Imagen principal" 
+             src="imagenes/imagen1.jpeg" 
+             onmouseover="changeImage(this)">
+    </div>
+
+    <nav>
+        <button onclick="location.href='pagina1.html'">Página 1</button>
+        <button onclick="location.href='pagina3.html'">Página 3</button>
+    </nav>
+</body>
+</html>
+
+
+
+
+
+

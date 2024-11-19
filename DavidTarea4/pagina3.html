@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Operaciones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            animation: pulse 1.5s infinite;
+        }
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005f73;
+        }
+        @keyframes pulse {
+            0% { background-color: #4CAF50; }
+            50% { background-color: #66BB6A; }
+            100% { background-color: #4CAF50; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Operaciones Matemáticas</h1>
+
+    <table>
+        <tr>
+            <th>Operación</th>
+            <th>Descripción</th>
+            <th>Calcular</th>
+        </tr>
+        <tr>
+            <td>Multiplicación</td>
+            <td>Multiplicar dos números ingresados</td>
+            <td>
+                <input type="number" id="num1" placeholder="Número 1">
+                <input type="number" id="num2" placeholder="Número 2">
+                <button onclick="calcularMultiplicacion()">Calcular</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Exponente</td>
+            <td>Eleva al cuadrado un número ingresado</td>
+            <td>
+                <input type="number" id="num3" placeholder="Número">
+                <button onclick="calcularExponente()">Calcular</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Resta</td>
+            <td>Restar dos números ingresados</td>
+            <td>
+                <input type="number" id="num4" placeholder="Número 1">
+                <input type="number" id="num5" placeholder="Número 2">
+                <button onclick="calcularResta()">Calcular</button>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+
+    <button onclick="location.href='pagina1.html'">Página 1</button>
+    <button onclick="location.href='pagina2.html'">Página 2</button>
+    <button onclick="location.href='pagina3.html'">Página 3</button>
+
+    <script>
+        function calcularMultiplicacion() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            if (!isNaN(num1) && !isNaN(num2)) {
+                const resultado = num1 * num2;
+                alert("El resultado de la multiplicación es: " + resultado);
+            } else {
+                alert("Por favor, ingresa dos números válidos.");
+            }
+        }
+
+        function calcularExponente() {
+            const num = parseFloat(document.getElementById('num3').value);
+            if (!isNaN(num)) {
+                const resultado = Math.pow(num, 2);
+                alert("El resultado de elevar " + num + " al cuadrado es: " + resultado);
+            } else {
+                alert("Por favor, ingresa un número válido.");
+            }
+        }
+
+        function calcularResta() {
+            const num1 = parseFloat(document.getElementById('num4').value);
+            const num2 = parseFloat(document.getElementById('num5').value);
+            if (!isNaN(num1) && !isNaN(num2)) {
+                const resultado = num1 - num2;
+                alert("El resultado de la resta es: " + resultado);
+            } else {
+                alert("Por favor, ingresa dos números válidos.");
+            }
+        }
+    </script>
+
+</body>
+</html>
